@@ -44,4 +44,10 @@ public class GreetingService {
         GreetingEntity greetingEntity = new GreetingEntity(id, message, firstName, lastName);
         return greetingRepository.save(greetingEntity);
     }
+
+    //method to search message by id
+    public GreetingEntity findById(String id){
+        return greetingRepository.findById(id).orElse(null);
+    }
+
 }

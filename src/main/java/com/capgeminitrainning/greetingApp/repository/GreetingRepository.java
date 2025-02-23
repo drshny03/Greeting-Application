@@ -9,5 +9,4 @@ import javax.print.DocFlavor;
 
 @Repository
 public interface GreetingRepository extends JpaRepository<GreetingEntity, String> {
-    GreetingEntity save(GreetingEntity greetingEntity);
 }
