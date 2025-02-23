@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Component
 public class GreetingService {
@@ -44,10 +46,14 @@ public class GreetingService {
         GreetingEntity greetingEntity = new GreetingEntity(id, message, firstName, lastName);
         return greetingRepository.save(greetingEntity);
     }
-
     //method to search message by id
     public GreetingEntity findById(String id){
         return greetingRepository.findById(id).orElse(null);
+    }
+    // Method to list all greetings
+    public List<GreetingEntity> getAllGreetings() {
+        //get all message
+        return greetingRepository.findAll();
     }
 
 }
