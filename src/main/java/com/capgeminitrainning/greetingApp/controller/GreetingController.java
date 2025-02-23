@@ -30,9 +30,9 @@ public class GreetingController {
     }
     //http put method
     @PutMapping("/put")
-    public String putGreeting(@RequestParam(required = false) String firstName,
-                              @RequestParam(required = false) String lastName){
-        return greetingService.greet(firstName, lastName);
+    public GreetingEntity putGreeting(@RequestParam String id,
+                                      @RequestParam(required = false) String message){
+        return greetingService.editGreetingMessage(id, message);
     }
     //http delete method
     @DeleteMapping("/delete")

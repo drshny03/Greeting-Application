@@ -55,5 +55,18 @@ public class GreetingService {
         //get all message
         return greetingRepository.findAll();
     }
+    //method to edit message
+    public GreetingEntity editGreetingMessage(String id, String message){
+        GreetingEntity greetingEntity = greetingRepository.findById(id).orElseThrow(() ->
+                new RuntimeException("greeting not found"));
 
+        //update message
+        if(message != null){
+            greetingEntity.setMessage(message);
+        }
+        //save updated message
+        greetingRepository.save(greetingEntity);
+
+        return greetingEntity;
+    }
 }
