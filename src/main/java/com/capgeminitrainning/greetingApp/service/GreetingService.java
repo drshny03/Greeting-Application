@@ -69,4 +69,13 @@ public class GreetingService {
 
         return greetingEntity;
     }
+    //method to delete message
+    public void deleteGreeting(String id) {
+        //check if id exist
+        if (!greetingRepository.existsById(id)) {
+            throw new RuntimeException("greeting not found with ID -" + id);
+        }
+        //delete the message
+        greetingRepository.deleteById(id);
+    }
 }
